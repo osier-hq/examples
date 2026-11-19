@@ -1,0 +1,3 @@
+# Copied into the Osier setup wizard as the variables to fill in. Values here are placeholders.
+env_name = "demo"
+greeting = "hello"   # mark sensitive in Osier
