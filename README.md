@@ -14,6 +14,14 @@ This repository holds small OpenTofu stacks for Osier. Use them to see the whole
 4. **Plan**: the run lands on `planned` with `+1` and a low risk score.
 5. **Approve & apply**: the run is `applied`. Plan again: `no changes`.
 
+## `dns-demo/`: a change that needs a person
+
+`dns-demo/` manages two Cloudflare DNS records under `demo.<your zone>`. The addresses are in 192.0.2.0/24, a range reserved for documentation, so no traffic moves. Osier counts every DNS record as a critical resource, so each plan waits for a person to approve it.
+
+1. Add a stack: your fork, branch `main`, path `dns-demo`.
+2. Set `zone_id`, `zone_name`, and `CLOUDFLARE_API_TOKEN` (sensitive, DNS edit on that zone only).
+3. Plan, then approve and apply. Change `content` of `cloudflare_dns_record.api` and plan again: the risk panel names the critical resource and the run waits for approval.
+
 ## Connect your coding agent
 
 Create an API token on the dashboard's **Agents and tokens** page. Then add Osier as an MCP server. The example uses Claude Code. Any MCP client takes the same URL and header:
