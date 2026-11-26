@@ -9,7 +9,7 @@ resource "cloudflare_dns_record" "api" {
   zone_id = var.zone_id
   name    = "api.demo.${var.zone_name}"
   type    = "A"
-  content = "192.0.2.10"
+  content = "192.0.2.20"
   ttl     = 300
   proxied = false
   comment = "Osier demo (osier-hq/examples dns-demo)"
